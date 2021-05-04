@@ -19,22 +19,3 @@ it("should return data if call is successful", () => {
   expect(result).toEqual(mockFetchPromise);
 
 });
-
-it("should throw an error if data can't be retrived", async() => {
-  const mockSuccessResponse = {};
-  const mockJsonPromise = Promise.reject(mockSuccessResponse); // 2
-  const mockFetchPromise = Promise.reject({
-    ok: false,
-    status: 401,
-    json: async () => ({message: 'Not authorized'}),
-  })
-
-  jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
-
-//  expect(async () => await service.getAllProducts() ).toThrowError("Problem fetching data");
-
-  let result = service.getAllProducts()
-  expect(result).toEqual(mockFetchPromise);
-
-
-});

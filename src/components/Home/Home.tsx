@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import Drawer from '@material-ui/core/Drawer';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
@@ -55,7 +55,7 @@ const Home = () => {
     };
 
 
-    if (isLoading) return <CircularProgress  />;
+    if (isLoading) return <LinearProgress />;
     if (error) return <div>Error. Please try again later.</div>;
 
     return (
