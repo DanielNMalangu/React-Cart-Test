@@ -19,9 +19,16 @@ export const ProductWrapper = styled.div`
     object-fit: contain;
     border-radius: 20px 20px 0 0;
   }
+  h3 {
+    height; 100%
+  }
+
+  aside{
+    width: 90%;
+  }
 
   .title {
-    height: 40px;
+    height: 75px;
     overflow-y: auto;
   }
 

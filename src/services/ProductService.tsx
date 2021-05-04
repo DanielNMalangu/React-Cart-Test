@@ -8,14 +8,21 @@ class ProductService {
     }
 
     getAllProducts = async (): Promise<ProductItem[]> => {
+        
         let endpoint = this.apiUrl + "/products/";
         const response = await fetch(endpoint);
+        try{
 
-        if (!response.ok) {
-            throw new Error("Problem fetching data");
+
+            if (!response.ok) {
+                throw new Error("Problem fetching data");
+            }
+
+            return response.json();
         }
-
-        return response.json();
+        catch (err) {
+            return response.json();
+        }
     }
 }
 

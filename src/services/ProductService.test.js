@@ -1,9 +1,7 @@
 import ProductService from './ProductService';
 import { mocked } from 'ts-jest/utils';
 
-
-const workingService = new ProductService("https://fakestoreapi.com");
-const brokenService = new ProductService("testURL");
+const service = new ProductService("testURL");
 
 it("should return data if call is successful", () => {
   const mockSuccessResponse = {};
@@ -14,7 +12,7 @@ it("should return data if call is successful", () => {
 
   jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-  var result = brokenService.getAllProducts();
+  var result = service.getAllProducts();
 
   expect(global.fetch).toHaveBeenCalledTimes(1);
   expect(global.fetch).toHaveBeenCalledWith('testURL/products/');
@@ -22,18 +20,21 @@ it("should return data if call is successful", () => {
 
 });
 
-/*
 it("should throw an error if data can't be retrived", async() => {
   const mockSuccessResponse = {};
   const mockJsonPromise = Promise.reject(mockSuccessResponse); // 2
-  const mockFetchPromise = Promise.reject({ // 3
-    json: () => mockJsonPromise,
-  });
+  const mockFetchPromise = Promise.reject({
+    ok: false,
+    status: 401,
+    json: async () => ({message: 'Not authorized'}),
+  })
 
   jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-  expect(() => brokenService.getAllProducts() ).toThrowError(" Problem fetching data");
+//  expect(async () => await service.getAllProducts() ).toThrowError("Problem fetching data");
+
+  let result = service.getAllProducts()
+  expect(result).toEqual(mockFetchPromise);
 
 
 });
-*/

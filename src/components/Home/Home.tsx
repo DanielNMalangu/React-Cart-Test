@@ -60,13 +60,15 @@ const Home = () => {
 
     return (
         <HomeRoot>
-            <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-                <Cart
-                    cartItems={cartItems}
-                    addToCart={handleAddToCart}
-                    removeFromCart={handleRemoveFromCart}
-                />
-            </Drawer>
+                <Grid xs={12} sm={6} md={4} lg={3} item>
+                    <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
+                        <Cart
+                            cartItems={cartItems}
+                            addToCart={handleAddToCart}
+                            removeFromCart={handleRemoveFromCart}
+                        />
+                    </Drawer>
+                </Grid>
             <StyledButton onClick={() => setCartOpen(true)}>
                 <Badge badgeContent={getTotalItems(cartItems)} color='error'>
                     <ShoppingCartIcon />
