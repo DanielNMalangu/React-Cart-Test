@@ -3,6 +3,14 @@ import IconButton from '@material-ui/core/IconButton';
 
 export const HomeRoot = styled.div`
   margin: 40px;
+  progressBox{
+    justify-content: center;
+  }
+  .progress {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+  }
 
   .productContainer{
     height: 100%;

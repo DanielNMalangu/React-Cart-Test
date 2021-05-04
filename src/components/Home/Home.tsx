@@ -55,7 +55,7 @@ const Home = () => {
     };
 
 
-    if (isLoading) return <CircularProgress />;
+    if (isLoading) return <CircularProgress  />;
     if (error) return <div>Error. Please try again later.</div>;
 
     return (

@@ -30,11 +30,30 @@ export const ProductWrapper = styled.div`
   .title {
     height: 75px;
     overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .title::-webkit-scrollbar {
+    display: none;
+  }
+  .description::-webkit-scrollbar {
+    display: none;
+  }
+  
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
   .description{
     height: 150px;
+    text-overflow: ellipsis;
     overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
   div {
     height: 100%;
