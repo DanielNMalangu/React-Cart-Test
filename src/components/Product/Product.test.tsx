@@ -1,7 +1,7 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { getAllByRole, getByDisplayValue, getByRole, getByTestId } from "@testing-library/react";
+import { getAllByRole } from "@testing-library/react";
 import Product from "./Product";
 import ProductItem from "../../types/ProductItem";
 
@@ -21,10 +21,7 @@ afterEach(() => {
 });
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries: {
-      // ✅ turns retries off
-      retry: false,
-    },
+    queries: {retry: false},
   },
 })
 

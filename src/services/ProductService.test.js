@@ -17,5 +17,4 @@ it("should return data if call is successful", () => {
   expect(global.fetch).toHaveBeenCalledTimes(1);
   expect(global.fetch).toHaveBeenCalledWith('testURL/products/');
   expect(result).toEqual(mockFetchPromise);
-
 });
